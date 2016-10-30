@@ -17,6 +17,8 @@ con <- dbConnect(MySQL(),
   host="127.0.0.1")
 on.exit(dbDisconnect(con))
 
+dbSendQuery(con, "SET NAMES utf8")
+
 #Cursos
 
 cursos <- levels(as.factor(c(as.character(baseGeral$Curso), as.character(baseDesempenho$Curso), as.character(baseEvasao$Curso))))
