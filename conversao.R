@@ -1,3 +1,7 @@
+#----------------------------------------------------------#
+# Este script de povoamento deve ser rodado apenas uma vez #
+#----------------------------------------------------------#
+
 library(RMySQL)
 
 baseGeral <- read.csv2(file = "data/BaseGeral/base_geral.csv", encoding = "UTF-8")
@@ -27,7 +31,6 @@ for(c in cursos) {
 
 novoModulo <- function(descricao) {
   query <- paste("INSERT INTO Modulo (nome) VALUES ('", descricao, "');", sep = "")
-  Encoding(query) <- "UTF-8"
   print(query)
   dbSendQuery(con, query)
 }
